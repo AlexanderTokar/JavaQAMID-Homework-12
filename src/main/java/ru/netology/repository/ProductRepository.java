@@ -14,7 +14,11 @@ public class ProductRepository {
         products = tmp;
     }
 
-    public Product [] getAll () {
+    public Product [] getProducts () {
+        return products;
+    }
+
+    public Product [] findALL () {
         return products;
     }
 
