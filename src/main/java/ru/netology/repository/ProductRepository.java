@@ -23,16 +23,31 @@ public class ProductRepository {
     }
 
     public void removeById (int id) {
+        Product del = findById(id);
+        if (del == null) {
+            throw new NotFoundExceptions(
+                    "Element with id:" + id + "not found"
+            );
+        }
         int length = products.length - 1;
-        Product [] tmp = new Product[length];
+        Product[] tmp = new Product[length];
         int index = 0;
         for (Product product : products) {
             if (product.getId() != id) {
-                tmp [index] = product;
+                tmp[index] = product;
                 index++;
             }
         }
         products = tmp;
+    }
+
+    public Product findById(int id) {
+        for (Product product : products) {
+            if (product.getId() == id) {
+                return product;
+            }
+        }
+        return null;
     }
 }
 
