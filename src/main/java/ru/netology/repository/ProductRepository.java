@@ -18,9 +18,6 @@ public class ProductRepository {
         return products;
     }
 
-    public Product [] findALL () {
-        return products;
-    }
 
     public void removeById (int id) {
         int length = products.length - 1;
